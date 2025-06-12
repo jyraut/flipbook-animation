@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FlipbookAnimationComponent } from './flipbook-animation/flipbook-animation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FlipbookAnimationComponent
   ],
   imports: [
     BrowserModule,

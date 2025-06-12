@@ -1,0 +1,95 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.book-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.book:hover {
+  cursor: e-resize;
+}
+
+.book:hover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+.book {
+  position: relative;
+  width: 90vw;
+  max-width: 500px;
+  height: 90vh;
+  margin: 0 auto;
+  perspective: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer !important;
+}
+
+.paper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  transform-origin: left;
+}
+
+.book.started .paper {
+  left: 50%;
+}
+.book.end .paper {
+  left: 0;
+}
+
+.paper canvas {
+  width: auto;
+  height: 100%;
+  display: block;
+}
+.flipped {
+  transform: rotateY(-180deg);
+  z-index: 0 !important;
+}
+
+.paper.flipped canvas {
+  transform: scaleX(-1);
+}
+.paper.visible {
+  z-index: 1000;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .book {
+    width: 95vw;
+  }
+
+  .paper {
+    transform-origin: center left;
+  }
+  .paper canvas {
+    width: 100%;
+  }
+  .book.started .paper {
+    left: 0;
+  }
+
+  .flipped {
+    transform: rotateY(-180deg);
+  }
+}

@@ -27,7 +27,13 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/pdfjs-dist/build",
+                "output": "/assets/pdfjs"
+              }
+
             ],
             "styles": [
               "src/styles.scss"
@@ -100,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2a395291-9e8e-4120-ab4c-ab956bf7656b"
   }
 }
